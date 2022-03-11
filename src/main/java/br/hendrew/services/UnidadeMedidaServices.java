@@ -9,7 +9,7 @@ public interface UnidadeMedidaServices {
 
     UnidadeMedida getUnidadeMedidaById(long id) throws MenssageNotFoundException;
 
-    List<UnidadeMedida> getUnidadeMedidaByNome(String nome) throws MenssageNotFoundException;
+    List<UnidadeMedida> getUnidadeMedidaByDescricao(String descricao) throws MenssageNotFoundException;
 
     List<UnidadeMedida> getAllUnidadeMedida();
 
@@ -21,6 +21,6 @@ public interface UnidadeMedidaServices {
 
     long countUnidadeMedida();
 
-    List<UnidadeMedida> getAlunosPage(int pag, int quant) throws MenssageNotFoundException;
+    List<UnidadeMedida> getUnidadeMedidaPage(int pag, int quant) throws MenssageNotFoundException;
     
 }
