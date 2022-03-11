@@ -54,7 +54,7 @@ public class AuthResource {
     @Path("/auth")
     @Produces(MediaType.APPLICATION_JSON)
     public Token login(@Valid UserLogin user){
-        return userServices.generateJWT(user.getEmail());  
+        return userServices.generateJWT(user);  
     }
 
     @POST

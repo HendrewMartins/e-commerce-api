@@ -37,15 +37,14 @@ public class Main {
         
         if (args.length>0) {
             String[] userData = args[0].split(":");
-            addAdmin(userData[0], userData[1], userData[2]);
+            addAdmin(userData[0], userData[1]);
             }
           Quarkus.waitForExit();
           return 0;
       }
 
-      private void addAdmin(String email, String password, String username){
+      private void addAdmin(String email, String password){
         User admin = new User();
-        admin.setUsername(username);
         admin.setEmail(email);
         admin.setPassword(password);
         Main main = new Main(null);

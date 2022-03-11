@@ -33,17 +33,16 @@ public class User{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
-    @Column(name="username" ,unique = true)
-    @Username 
-    @NotNull
-    @Size(min = 3,max = 20)
-    private String username;
-
     @Column(name="email" ,unique = true)
-    @Username 
+    @Username
     @NotNull
-    @Size(min = 3,max = 20)
+    @Size(min = 3,max = 30)
     private String email;
+
+    @Column(name="nome" )
+    @NotNull
+    @Size(min = 3,max = 100)
+    private String nome;
 
     @Password 
     @Column(name="password")

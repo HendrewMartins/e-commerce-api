@@ -8,9 +8,9 @@ import io.smallrye.jwt.build.Jwt;
 
 public class TokenGenerator {
 
-    public static String generate(String email, String roles) {
+    public static String generate(String userName, String roles) {
         String token =
-           Jwt.upn(email) 
+           Jwt.upn(userName) 
              .groups(new HashSet<>(Arrays.asList(roles.split(","))))
            .sign();
         return token;
