@@ -43,6 +43,7 @@ public class DefaultUnidadeMedidaServices implements UnidadeMedidaServices {
     public UnidadeMedida updateUnidadeMedida(long id, UnidadeMedida unidadeMedida) throws MenssageNotFoundException {
         UnidadeMedida update = getUnidadeMedidaById(id);
         update.setDescricao(unidadeMedida.getDescricao());
+        update.setSigla(unidadeMedida.getSigla());
         return update;
     }
 

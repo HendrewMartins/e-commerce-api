@@ -26,4 +26,8 @@ public class UnidadeMedida {
     @Size(max=30)
     private String descricao;
 
+    @Column(name="sigla")
+    @Size(max=10)
+    private String sigla;
+
 }
