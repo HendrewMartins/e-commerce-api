@@ -61,7 +61,7 @@ public class UnidadeMedidaController {
 
     @GET
     @PermitAll
-    @Path("/id/{id}")
+    @Path("/{id}")
     @Operation(summary = "Pegar UnidadeMedida", description = "Pesquisa por um ID o UnidadeMedida")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))),
@@ -94,7 +94,7 @@ public class UnidadeMedidaController {
 
     @POST
     @PermitAll
-    @Path("/save")
+    @Path("/")
     @Operation(summary = "Adicionar UnidadeMedida", description = "Criar um novo UnidadeMedida e persistir no banco")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))))
     public UnidadeMedida createUnidadeMedida(@Valid UnidadeMedidaDTO materialDTO) {
@@ -103,7 +103,7 @@ public class UnidadeMedidaController {
 
     @PUT
     @PermitAll
-    @Path("/edit/{id}")
+    @Path("/{id}")
     @Operation(summary = "Atualizar um UnidadeMedida", description = "Atualizar um UnidadeMedida existente via id")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))),
@@ -117,7 +117,7 @@ public class UnidadeMedidaController {
 
     @DELETE
     @PermitAll
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Operation(summary = "Apagar a UnidadeMedida", description = "Apagar um UnidadeMedida pelo ID")
     @APIResponses(value = { @APIResponse(responseCode = "204", description = "Success"),
             @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })

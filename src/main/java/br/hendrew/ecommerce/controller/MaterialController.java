@@ -60,7 +60,7 @@ public class MaterialController {
 
     @GET
     @PermitAll
-    @Path("/id/{id}")
+    @Path("/{id}")
     @Operation(summary = "Pegar Material", description = "Pesquisa por um ID o Material")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))),
@@ -93,7 +93,7 @@ public class MaterialController {
 
     @POST
     @PermitAll
-    @Path("/save")
+    @Path("/")
     @Operation(summary = "Adicionar Material", description = "Criar um novo Material e persistir no banco")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))))
     public Material createMaterial(@Valid MaterialDTO materialDTO) {
@@ -102,7 +102,7 @@ public class MaterialController {
 
     @PUT
     @PermitAll
-    @Path("/edit/{id}")
+    @Path("/{id}")
     @Operation(summary = "Atualizar um Material", description = "Atualizar um Material existente via id")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))),
@@ -116,7 +116,7 @@ public class MaterialController {
 
     @DELETE
     @PermitAll
-    @Path("/delete/{id}")
+    @Path("/{id}")
     @Operation(summary = "Apagar a Material", description = "Apagar um Material pelo ID")
     @APIResponses(value = { @APIResponse(responseCode = "204", description = "Success"),
             @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
