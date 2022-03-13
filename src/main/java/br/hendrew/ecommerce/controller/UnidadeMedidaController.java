@@ -3,7 +3,7 @@ package br.hendrew.ecommerce.controller;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -43,7 +43,7 @@ public class UnidadeMedidaController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Operation(summary = "Listar UnidadeMedida", description = "Lista UnidadeMedida")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))))
     public List<UnidadeMedida> getUnidadeMedida() {
@@ -51,7 +51,7 @@ public class UnidadeMedidaController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/page/{page}")
     @Operation(summary = "Listar UnidadeMedida", description = "Lista Paginas do UnidadeMedida")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))))
@@ -60,7 +60,7 @@ public class UnidadeMedidaController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Pegar UnidadeMedida", description = "Pesquisa por um ID o UnidadeMedida")
     @APIResponses(value = {
@@ -71,7 +71,7 @@ public class UnidadeMedidaController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/count")
     @Operation(summary = "Pegar Quantidade dos UnidadeMedida", description = "Quantidade Repository UnidadeMedida")
     @APIResponses(value = {
@@ -82,7 +82,7 @@ public class UnidadeMedidaController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/descricao/{descricao}")
     @Operation(summary = "Pegar UnidadeMedida", description = "Pesquisa por uma Descricao do UnidadeMedida")
     @APIResponses(value = {
@@ -93,7 +93,7 @@ public class UnidadeMedidaController {
     }
 
     @POST
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/")
     @Operation(summary = "Adicionar UnidadeMedida", description = "Criar um novo UnidadeMedida e persistir no banco")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))))
@@ -102,7 +102,7 @@ public class UnidadeMedidaController {
     }
 
     @PUT
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Atualizar um UnidadeMedida", description = "Atualizar um UnidadeMedida existente via id")
     @APIResponses(value = {
@@ -116,7 +116,7 @@ public class UnidadeMedidaController {
     }
 
     @DELETE
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Apagar a UnidadeMedida", description = "Apagar um UnidadeMedida pelo ID")
     @APIResponses(value = { @APIResponse(responseCode = "204", description = "Success"),

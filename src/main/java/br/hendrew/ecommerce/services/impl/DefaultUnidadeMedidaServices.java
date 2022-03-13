@@ -29,7 +29,7 @@ public class DefaultUnidadeMedidaServices implements UnidadeMedidaServices {
 
     @Override
     public List<UnidadeMedida> getUnidadeMedidaByDescricao(String descricao) throws MenssageNotFoundException {
-        return unidadeRepository.find("descricao", descricao).list();
+        return unidadeRepository.findDescricao(descricao);
     }
     
 

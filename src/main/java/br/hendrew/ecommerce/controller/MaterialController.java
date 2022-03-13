@@ -2,7 +2,7 @@ package br.hendrew.ecommerce.controller;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -22,6 +22,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
+import br.hendrew.ecommerce.converter.MaterialConverter;
 import br.hendrew.ecommerce.dto.MaterialDTO;
 import br.hendrew.ecommerce.entity.Material;
 import br.hendrew.ecommerce.exception.MenssageNotFoundException;
@@ -42,15 +43,15 @@ public class MaterialController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Operation(summary = "Listar Material", description = "Lista Material alunos")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))))
-    public List<Material> getMaterial() {
+    public List<MaterialConverter> getMaterial() {
         return materialServices.getAllMaterial();
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/page/{page}")
     @Operation(summary = "Listar Material", description = "Lista Paginas do Material")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))))
@@ -59,7 +60,7 @@ public class MaterialController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Pegar Material", description = "Pesquisa por um ID o Material")
     @APIResponses(value = {
@@ -70,7 +71,7 @@ public class MaterialController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/count")
     @Operation(summary = "Pegar Quantidade dos Material", description = "Quantidade Repository Material")
     @APIResponses(value = {
@@ -81,7 +82,7 @@ public class MaterialController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/descricao/{descricao}")
     @Operation(summary = "Pegar Material", description = "Pesquisa por uma Descricao do Material")
     @APIResponses(value = {
@@ -92,7 +93,7 @@ public class MaterialController {
     }
 
     @POST
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/")
     @Operation(summary = "Adicionar Material", description = "Criar um novo Material e persistir no banco")
     @APIResponses(value = @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Material.class))))
@@ -101,7 +102,7 @@ public class MaterialController {
     }
 
     @PUT
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Atualizar um Material", description = "Atualizar um Material existente via id")
     @APIResponses(value = {
@@ -115,7 +116,7 @@ public class MaterialController {
     }
 
     @DELETE
-    @PermitAll
+    @RolesAllowed("ADMIN")
     @Path("/{id}")
     @Operation(summary = "Apagar a Material", description = "Apagar um Material pelo ID")
     @APIResponses(value = { @APIResponse(responseCode = "204", description = "Success"),

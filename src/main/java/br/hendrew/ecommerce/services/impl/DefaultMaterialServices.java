@@ -1,10 +1,14 @@
 package br.hendrew.ecommerce.services.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.persistence.Convert;
 import javax.transaction.Transactional;
 
+import br.hendrew.ecommerce.converter.Converter;
+import br.hendrew.ecommerce.converter.MaterialConverter;
 import br.hendrew.ecommerce.entity.Material;
 import br.hendrew.ecommerce.exception.MenssageNotFoundException;
 import br.hendrew.ecommerce.repository.MaterialRepository;
@@ -16,8 +20,11 @@ public class DefaultMaterialServices implements MaterialServices {
 
     private final MaterialRepository materialRepository;
 
-    public DefaultMaterialServices(MaterialRepository materialRepository){
+    private final Converter converter;
+    
+    public DefaultMaterialServices(MaterialRepository materialRepository, Converter converter){
         this.materialRepository = materialRepository;
+        this.converter = converter;
     }
 
     @Override
@@ -34,8 +41,15 @@ public class DefaultMaterialServices implements MaterialServices {
     
 
     @Override
-    public List<Material> getAllMaterial() {
-        return materialRepository.listAll();
+    public List<MaterialConverter> getAllMaterial() {
+        List<Material> material = materialRepository.listAll();
+        List<MaterialConverter> converter = new ArrayList<MaterialConverter>();
+
+        for(Material item : material){
+            converter.add(this.converter.materialConverter(item));
+        }
+
+        return converter;
     }
 
     @Transactional
