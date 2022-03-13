@@ -81,7 +81,6 @@ public class DefaultUserServices implements UserServices {
                 return Response.status(Status.UNAUTHORIZED).build();
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return null;

@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -12,29 +14,24 @@ import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * @author hendrewMartins
- */
-
 @Getter
 @Setter
 @Entity
-@Table(name="unidademedida")
-public class UnidadeMedida {
-    
-    @Id 
-    @Column(name="unidadeid")
+@Table(name="sabor")
+public class Sabor {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name ="saborId")
+    private Long id;    
 
     @NotNull
-    @Column(name="descricao")
-    @Size(max=30)
+    @Column(name = "descricao", nullable = true)
+	@Size(max = 100)
     private String descricao;
-
+   
+    @ManyToOne
     @NotNull
-    @Column(name="sigla")
-    @Size(max=10)
-    private String sigla;
-
+	@JoinColumn(name = "produtoID")
+    private Produto produto;
 }

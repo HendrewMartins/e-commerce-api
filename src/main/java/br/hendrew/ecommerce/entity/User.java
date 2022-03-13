@@ -44,10 +44,11 @@ public class User{
     @Size(min = 3,max = 100)
     private String nome;
 
+    @NotNull
     @Column(name="password")
     private String password;
 
-    // Comma-separated list of roles
+    @NotNull
     @Column(name="roles")
     @Enumerated (EnumType.STRING) 
     private Role roles;

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
-import javax.persistence.Convert;
 import javax.transaction.Transactional;
 
 import br.hendrew.ecommerce.converter.Converter;

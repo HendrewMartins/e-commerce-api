@@ -65,7 +65,7 @@ public class UnidadeMedidaController {
     @Operation(summary = "Pegar UnidadeMedida", description = "Pesquisa por um ID o UnidadeMedida")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))),
-            @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
+            @APIResponse(responseCode = "404", description = "UnidadeMedida not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
     public UnidadeMedida getUnidadeMedida(@PathParam("id") int id) throws MenssageNotFoundException {
         return unidadeMedidaServices.getUnidadeMedidaById(id);
     }
@@ -76,7 +76,7 @@ public class UnidadeMedidaController {
     @Operation(summary = "Pegar Quantidade dos UnidadeMedida", description = "Quantidade Repository UnidadeMedida")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = Long.class))),
-            @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
+            @APIResponse(responseCode = "404", description = "UnidadeMedida not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
     public long getQuantidade() throws MenssageNotFoundException {
         return unidadeMedidaServices.countUnidadeMedida();
     }
@@ -87,7 +87,7 @@ public class UnidadeMedidaController {
     @Operation(summary = "Pegar UnidadeMedida", description = "Pesquisa por uma Descricao do UnidadeMedida")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))),
-            @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
+            @APIResponse(responseCode = "404", description = "UnidadeMedida not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
     public List<UnidadeMedida> getUnidadeMedidaDescricao(@PathParam("descricao") String descricao) throws MenssageNotFoundException {
         return unidadeMedidaServices.getUnidadeMedidaByDescricao(descricao);
     }
@@ -107,7 +107,7 @@ public class UnidadeMedidaController {
     @Operation(summary = "Atualizar um UnidadeMedida", description = "Atualizar um UnidadeMedida existente via id")
     @APIResponses(value = {
             @APIResponse(responseCode = "200", description = "Success", content = @Content(mediaType = "application/json", schema = @Schema(implementation = UnidadeMedida.class))),
-            @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
+            @APIResponse(responseCode = "404", description = "UnidadeMedida not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
     public UnidadeMedida updateMaterial(@PathParam("id") int id, @Valid UnidadeMedidaDTO materialDTO)
             throws MenssageNotFoundException {
                 return unidadeMedidaServices.updateUnidadeMedida(id, materialDTO.toUnidade());
@@ -120,7 +120,7 @@ public class UnidadeMedidaController {
     @Path("/{id}")
     @Operation(summary = "Apagar a UnidadeMedida", description = "Apagar um UnidadeMedida pelo ID")
     @APIResponses(value = { @APIResponse(responseCode = "204", description = "Success"),
-            @APIResponse(responseCode = "404", description = "Alunos not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
+            @APIResponse(responseCode = "404", description = "UnidadeMedida not found", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionHandler.ErrorResponseBody.class))) })
     public boolean deleteUnidadeMedida(@PathParam("id") int id) throws MenssageNotFoundException {
         unidadeMedidaServices.deleteUnidadeMedida(id);
         return true;
